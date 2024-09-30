@@ -4,10 +4,14 @@ locals {
   is_monitoring_account = data.aws_caller_identity.this.account_id == local.oam_sink_account_id ? true : false
 }
 
-resource "aws_oam_link" "oam_source_link" {
+resource "aws_oam_link" "this" {
   count = local.is_monitoring_account ? 0 : 1
 
   sink_identifier = local.oam_sink_arn
   label_template  = "$AccountName"
   resource_types  = ["AWS::Logs::LogGroup"]
+}
+
+output "oam_sink" {
+  value = aws_oam_link.this
 }
