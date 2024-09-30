@@ -12,6 +12,6 @@ resource "aws_oam_link" "this" {
   resource_types  = ["AWS::Logs::LogGroup"]
 }
 
-output "oam_sink_arn" {
+output "oam_link_arn" {
   value = local.is_monitoring_account ? "NA" : aws_oam_link.this[0].arn
 }
