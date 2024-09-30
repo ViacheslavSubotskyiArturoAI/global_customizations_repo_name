@@ -1,7 +1,7 @@
 locals {
   oam_sink_account_id = "897722673779"
   oam_sink_arn = "arn:aws:oam:us-east-1:897722673779:sink/177205d6-3266-4809-9fd9-2182aad64efc"
-  is_monitoring_account = data.aws_caller_identity.this.account_id == local.oam_sink_account_id ? 1 : 0
+  is_monitoring_account = data.aws_caller_identity.this.account_id == local.oam_sink_account_id ? true : false
 }
 
 resource "aws_oam_link" "oam_source_link" {
