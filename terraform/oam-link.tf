@@ -13,5 +13,5 @@ resource "aws_oam_link" "this" {
 }
 
 output "oam_sink" {
-  value = aws_oam_link.this
+  value = local.is_monitoring_account ? "NA" : aws_oam_link[0].this
 }
