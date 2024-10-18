@@ -22,5 +22,5 @@ resource "aws_oam_link" "this" {
 }
 
 output "oam_link_arn" {
-  value = local.oam_link_enabled && !local.oam_link_excluded ? aws_oam_link.this[0].arn : "NA"
+  value = local.oam_link_enabled && !local.oam_link_excluded ? aws_oam_link.this[0].arn : null
 }
